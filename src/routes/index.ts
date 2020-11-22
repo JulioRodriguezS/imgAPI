@@ -8,6 +8,7 @@ router
     .get('/', photoController.getPhotos)
     .get('/:imgId', photoController.getPhoto)
     .post('/', multer.mult, photoController.createPhoto)
-    .delete('/',photoController.deletePhoto);
+    .delete('/',photoController.deletePhoto)
+    .put('/',photoController.updatePhoto);
 
 export default router;

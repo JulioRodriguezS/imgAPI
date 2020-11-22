@@ -2,9 +2,9 @@ import multer from 'multer';
 import {v4 as uuidv4} from 'uuid';
 import path from 'path';
 
-
+const imagePath = path.join(__dirname,'../../public/images');
 const storage = multer.diskStorage({
-    destination: path.join(__dirname,'../../public/images'),
+    destination: imagePath,
     filename: (req, file, cb) => {
         console.log(uuidv4());
         cb(null, uuidv4() + path.extname(file.originalname));
@@ -12,7 +12,8 @@ const storage = multer.diskStorage({
 });
 
 const mult = multer({
-    storage
+    storage,
+    dest:imagePath
 }).single('image');
 
 export default {mult}
